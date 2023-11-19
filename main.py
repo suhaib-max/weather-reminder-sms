@@ -9,6 +9,15 @@ weather_parameter = {
     "appid": api_key,
 }
 
+response = requests.get(OWN_Endpoint, params=weather_parameter)
+response.raise_for_status()
+weather_data = response.json()
+weather_data = weather_data["hourly"][:12]
+
+will_rain = False
+
+for hour_data in weather_data:
+    condition_code = hour_data["weather"][0]["id"]
 
 
 
