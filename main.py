@@ -18,7 +18,11 @@ will_rain = False
 
 for hour_data in weather_data:
     condition_code = hour_data["weather"][0]["id"]
+    if int(condition_code) < 700:
+        will_rain = True
 
+if will_rain:
+    print("Bring an umbrella")
 
 
 
